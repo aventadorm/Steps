@@ -23,15 +23,26 @@ typedef void (^CMPedometerHandler)(CMPedometerData *pedometerData, NSError *erro
     NSDate* startDate;
     CMPedometerHandler handler = ^(CMPedometerData *pedometerData, NSError *error){
     
-    
+        if(error){
+            NSLog(@"Historical pedometer query failed :%@",
+                  [error localizedDescription]);
+        }
+        else{
+            [handlePedometerData:pedometerData];
+        }
+        
     };
+    [pedometer queryPedometerDataFromDate:startDate toDate:[NSDate date] withHandler:handler];
+}
+    -(void)handlePedometerData:(CMPedometerData*)pmData{
+    }
     
     
     
     
     
 
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
