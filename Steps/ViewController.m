@@ -7,9 +7,10 @@
 //
 
 #import "ViewController.h"
+@import CoreMotion;
 
 @interface ViewController ()
-
+typedef void (^CMPedometerHandler)(CMPedometerData *pedometerData, NSError *error);
 @end
 
 @implementation ViewController
@@ -17,8 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-}
+    NSDate *today = [NSDate date];
+    CMPedometer *pedometer = [[CMPedometer alloc] init];
+    NSDate* startDate;
+    CMPedometerHandler handler = ^(CMPedometerData *pedometerData, NSError *error){
+    
+    
+    };
+    
+    
+    
+    
+    
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
