@@ -17,25 +17,25 @@ typedef void (^CMPedometerHandler)(CMPedometerData *pedometerData, NSError *erro
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    NSDate *today = [NSDate date];
     CMPedometer *pedometer = [[CMPedometer alloc] init];
     NSDate* startDate;
     CMPedometerHandler handler = ^(CMPedometerData *pedometerData, NSError *error){
-    
         if(error){
             NSLog(@"Historical pedometer query failed :%@",
                   [error localizedDescription]);
         }
         else{
-            [handlePedometerData:pedometerData];
+            [self handlePedometerData:pedometerData];
         }
         
     };
     [pedometer queryPedometerDataFromDate:startDate toDate:[NSDate date] withHandler:handler];
 }
-    -(void)handlePedometerData:(CMPedometerData*)pmData{
-    }
+-(void)handlePedometerData:(CMPedometerData*)pmData{
+    NSLog(@"%@",pmData);
+        
+    
+}
     
     
     
