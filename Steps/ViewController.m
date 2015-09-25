@@ -33,7 +33,6 @@ typedef void (^CMPedometerHandler)(CMPedometerData *pedometerData, NSError *erro
 }
 -(void)handlePedometerData:(CMPedometerData*)pmData{
     NSLog(@"%@",pmData);
-    NSLog(@"Test");
         
     
 }
